@@ -13,6 +13,19 @@ Your AMI already has:
 `user_data` just runs `docker compose up -d` on boot, so a reboot or instance
 replacement brings Juice Shop back automatically.
 
+### What I Did
+
+      Base: Amazon Linux 2023 kernel-6.18 AMI
+      yum update -y
+      yum install -y docker
+      systemctl enable docker
+      mkdir -p /usr/local/lib/docker/cli-plugins
+      curl -SL https://github.com/docker/compose/releases/latest/download/docker-compose-linux-x86_64 \
+        -o /usr/local/lib/docker/cli-plugins/docker-compose
+      chmod +x /usr/local/lib/docker/cli-plugins/docker-compose
+      # Add docker-compose.yml from this repo to /opt/juiceshop
+
+
 ## Sizing rationale (root volume)
 - Base OS (Ubuntu/AL2): ~1.5–3 GB
 - Docker engine + image layers: ~1 GB
@@ -53,3 +66,4 @@ Each student gets their own instance, Elastic IP, and DNS record:
 - TLS
 - EC2 Image Builder
 - Controlllllll plane
+- Put docker compose write in user-data lol
