@@ -1,0 +1,14 @@
+services:
+  juiceshop:
+    image: bkimminich/juice-shop:latest
+    container_name: juiceshop
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    volumes:
+      # Only the db file is bind-mounted, not the whole data/ dir - that dir
+      # also ships the image's seed assets (data/static/*), which startup
+      # copies from on every boot. Mounting the directory itself hides those
+      # seed files behind an empty host dir and crashes the container.
+      - /opt/juiceshop/data/juiceshop.sqlite:/juice-shop/data/juiceshop.sqlite
+      - /opt/juiceshop/logs:/juice-shop/logs

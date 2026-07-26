@@ -1,0 +1,21 @@
+.terraform/*
+*.tfvars
+
+# backend.tf (state backend) and provider.tf (provider/tagging config) are
+# environment-specific and gitignored here. You should still configure a
+# remote state backend (e.g. S3 + native locking) rather than relying on
+# local state - see https://developer.hashicorp.com/terraform/language/backend/s3
+backend.tf
+provider.tf
+
+# This is meant to be a template repository
+# if you are using this with a team you may want to track
+.terraform.lock.hcl
+
+
+# My students judge me for having a mac
+**/.DS_Store
+
+# Some of my favorite ways to open files
+.vscode
+.idea
