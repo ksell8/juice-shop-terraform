@@ -1,6 +1,6 @@
 # Juice Shop on EC2 (Terraform + Docker Compose)
 
-This is a quick a dirty setup for OWASP Juice Shop.
+This is a quick & dirty setup for OWASP Juice Shop.
 - [What is OWASP Juice Shop?](https://owasp.org/www-project-juice-shop/)
 
 ## What this assumes
